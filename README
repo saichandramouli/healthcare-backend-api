@@ -1,0 +1,86 @@
+# 🏥 Healthcare Backend API
+
+A secure Healthcare Backend built using **Django**, **Django REST Framework (DRF)**, **PostgreSQL**, and **JWT Authentication**.
+
+This system allows users to register, log in, and manage patients, doctors, and patient-doctor mappings securely.
+
+---
+
+## 🚀 Tech Stack
+
+* Python
+* Django
+* Django REST Framework
+* PostgreSQL
+* JWT (SimpleJWT)
+
+---
+
+## ⚙️ Setup
+
+```bash
+git clone <repo-url>
+cd healthcare_project
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+Create `.env` file:
+
+```
+DB_NAME=healthcare_db
+DB_USER=postgres
+DB_PASSWORD=your_password
+SECRET_KEY=your_secret_key
+```
+
+Run:
+
+```bash
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+```
+
+---
+
+## 📌 API Endpoints
+
+### 🔐 Authentication
+
+* `POST /api/auth/register/`
+* `POST /api/auth/login/`
+
+### 👤 Patients (Authenticated)
+
+* `POST /api/patients/`
+* `GET /api/patients/`
+* `GET /api/patients/<id>/`
+* `PUT /api/patients/<id>/`
+* `DELETE /api/patients/<id>/`
+
+### 👨‍⚕️ Doctors (Authenticated)
+
+* `POST /api/doctors/`
+* `GET /api/doctors/`
+* `GET /api/doctors/<id>/`
+* `PUT /api/doctors/<id>/`
+* `DELETE /api/doctors/<id>/`
+
+### 🔗 Mappings
+
+* `POST /api/mappings/`
+* `GET /api/mappings/`
+* `DELETE /api/mappings/<id>/`
+
+---
+
+## 🔑 Authentication Flow
+
+1. Register
+2. Login → Get JWT token
+3. Use Bearer Token for protected APIs
+
+---
+
