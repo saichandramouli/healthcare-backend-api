@@ -1,32 +1,58 @@
 # 🏥 Healthcare Backend API
 
-A secure Healthcare Backend built using **Django**, **Django REST Framework (DRF)**, **PostgreSQL**, and **JWT Authentication**.
+A RESTful Healthcare Management Backend built using **Django**, **Django REST Framework**, **PostgreSQL**, and **JWT Authentication**.
 
-This system allows users to register, log in, and manage patients, doctors, and patient-doctor mappings securely.
+This system enables secure user authentication and management of patients, doctors, and their relationships through protected API endpoints.
 
 ---
 
-## 🚀 Tech Stack
+## 🚀 Key Features
+
+* 🔐 JWT-based User Authentication
+* 👤 User-specific Patient Management
+* 👨‍⚕️ Doctor Management System
+* 🔗 Patient–Doctor Mapping
+* 🗄 PostgreSQL Database Integration
+* 🛡 Secure & Scalable API Architecture
+
+---
+
+## 🛠 Tech Stack
 
 * Python
 * Django
 * Django REST Framework
 * PostgreSQL
-* JWT (SimpleJWT)
+* SimpleJWT
+* Postman (API Testing)
 
 ---
 
-## ⚙️ Setup
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the Repository
 
 ```bash
-git clone <repo-url>
+git clone <your-repo-url>
 cd healthcare_project
+```
+
+### 2️⃣ Create Virtual Environment
+
+```bash
 python -m venv venv
 venv\Scripts\activate
+```
+
+### 3️⃣ Install Dependencies
+
+```bash
 pip install -r requirements.txt
 ```
 
-Create `.env` file:
+### 4️⃣ Configure Environment Variables
+
+Create `.env` file in project root:
 
 ```
 DB_NAME=healthcare_db
@@ -35,11 +61,16 @@ DB_PASSWORD=your_password
 SECRET_KEY=your_secret_key
 ```
 
-Run:
+### 5️⃣ Run Migrations
 
 ```bash
 python manage.py makemigrations
 python manage.py migrate
+```
+
+### 6️⃣ Start Server
+
+```bash
 python manage.py runserver
 ```
 
@@ -52,7 +83,7 @@ python manage.py runserver
 * `POST /api/auth/register/`
 * `POST /api/auth/login/`
 
-### 👤 Patients (Authenticated)
+### 👤 Patients
 
 * `POST /api/patients/`
 * `GET /api/patients/`
@@ -60,7 +91,7 @@ python manage.py runserver
 * `PUT /api/patients/<id>/`
 * `DELETE /api/patients/<id>/`
 
-### 👨‍⚕️ Doctors (Authenticated)
+### 👨‍⚕️ Doctors
 
 * `POST /api/doctors/`
 * `GET /api/doctors/`
@@ -68,7 +99,7 @@ python manage.py runserver
 * `PUT /api/doctors/<id>/`
 * `DELETE /api/doctors/<id>/`
 
-### 🔗 Mappings
+### 🔗 Patient–Doctor Mapping
 
 * `POST /api/mappings/`
 * `GET /api/mappings/`
@@ -78,9 +109,24 @@ python manage.py runserver
 
 ## 🔑 Authentication Flow
 
-1. Register
-2. Login → Get JWT token
-3. Use Bearer Token for protected APIs
+1. Register user
+2. Login to obtain JWT token
+3. Use `Authorization: Bearer <access_token>` for protected endpoints
 
 ---
+
+## 📊 Database Models
+
+* **Patient** → Linked to authenticated user
+* **Doctor** → Stores specialization & experience
+* **PatientDoctorMapping** → Connects patients with doctors
+
+---
+
+## 👨‍💻 Author
+
+**Aranala Sai Chandramouli**
+
+---
+
 
